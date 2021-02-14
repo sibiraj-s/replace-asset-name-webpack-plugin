@@ -36,12 +36,11 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "test",
-    "search",
-    "assetName"
+    "asset",
+    "rules"
   ],
   "properties": {
-    "test": {
+    "asset": {
       "description": "Include all assets that pass test assertion.",
       "oneOf": [
         {
@@ -49,45 +48,35 @@
         }
       ]
     },
-    "include": {
-      "description": "Include all assets matching any of these conditions.",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/Rules"
+    "rules": {
+      "description": "Rules to search and replace asset",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "search": {
+            "description": "Regex or String to be replaced",
+            "$ref": "#/definitions/Rule"
+          },
+          "replace": {
+            "description": "Asset to replace",
+            "anyOf": [
+              {
+                "instanceof": "RegExp",
+                "tsType": "RegExp"
+              },
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "instanceof": "Function"
+              }
+            ]
+          }
         }
-      ]
-    },
-    "exclude": {
-      "description": "Exclude all assets matching any of these conditions.",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/Rules"
-        }
-      ]
-    },
-    "search": {
-      "description": "Regex or String to be replaced",
-      "oneOf": [
-        {
-          "$ref": "#/definitions/Rules"
-        }
-      ]
-    },
-    "assetName": {
-      "description": "Asset to replace",
-      "anyOf": [
-        {
-          "instanceof": "RegExp",
-          "tsType": "RegExp"
-        },
-        {
-          "type": "string",
-          "minLength": 1
-        },
-        {
-          "instanceof": "Function"
-        }
-      ]
+      }
     }
   }
 }

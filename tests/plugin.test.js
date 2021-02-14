@@ -24,9 +24,13 @@ it('should replace the asset name correctly in dev mode', async () => {
   const compiler = getCompiler(true);
 
   new ReplaceAssetNamePlugin({
-    test: /main.js$/,
-    search: '{SECONDARY_FILE}',
-    assetName: /secondary.js/,
+    asset: /main.js$/,
+    rules: [
+      {
+        search: '{SECONDARY_FILE}',
+        replace: /secondary.js/,
+      },
+    ],
   }).apply(compiler);
 
   const stats = await compile(compiler);
@@ -47,9 +51,40 @@ it('should replace the asset name correctly in prod mode', async () => {
   const compiler = getCompiler();
 
   new ReplaceAssetNamePlugin({
-    test: /main(?:-.*)?.js$/,
-    search: '{SECONDARY_FILE}',
-    assetName: /secondary(?:-.*)?.js$/,
+    asset: /main(?:-.*)?.js$/,
+    rules: [
+      {
+        search: '{SECONDARY_FILE}',
+        replace: /secondary(?:-.*)?.js$/,
+      },
+    ],
+  }).apply(compiler);
+
+  const stats = await compile(compiler);
+
+  const assets = getAssetNames(stats);
+  expect(assets).toMatchSnapshot('assets');
+  expect(assets.length).toBe(4);
+
+  const mainFileName = assets.find((asset) => (/main(?:-.*)?.js$/).test(asset));
+  const secondaryFileName = assets.find((asset) => (/secondary(?:-.*)?.js$/).test(asset));
+  const mainFilePath = path.resolve(process.cwd(), 'dist', mainFileName);
+
+  const mainJS = await fs.promises.readFile(mainFilePath, 'utf-8');
+  expect(mainJS).toContain(secondaryFileName);
+});
+
+it('should replace the asset name correctly when search is a regex', async () => {
+  const compiler = getCompiler();
+
+  new ReplaceAssetNamePlugin({
+    asset: /main(?:-.*)?.js$/,
+    rules: [
+      {
+        search: /{SECONDARY_FILE}/g,
+        replace: /secondary(?:-.*)?.js$/,
+      },
+    ],
   }).apply(compiler);
 
   const stats = await compile(compiler);
@@ -70,9 +105,13 @@ it('should do nothing when target asset is not found', async () => {
   const compiler = getCompiler();
 
   new ReplaceAssetNamePlugin({
-    test: /main(?:-.*)?.js$/,
-    search: '{SECONDARY_FILE}',
-    assetName: /unknown.js$/,
+    asset: /main(?:-.*)?.js$/,
+    rules: [
+      {
+        search: '{SECONDARY_FILE}',
+        replace: /unknown.js$/,
+      },
+    ],
   }).apply(compiler);
 
   const stats = await compile(compiler);

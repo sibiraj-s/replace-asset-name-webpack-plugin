@@ -35,9 +35,13 @@ module.exports = {
   },
   plugins: [
     new ReplaceAssetNamePlugin({
-      test: /main(-.*)?.js$/,
-      search: '{APP_ENTRY_REF}',
-      assetName: /app(-.*)?.js$/,
+      asset: /main(-.*)?.js$/,
+      rules: [
+        {
+          search: '{APP_ENTRY_REF}',
+          replace: /app(-.*)?.js$/,
+        },
+      ],
     }),
   ],
 };
@@ -49,35 +53,39 @@ In development mode. If you use `contenthash` for testing. Make sure to enable [
 
 ### Options
 
-#### test
+#### asset
 
 Include all assets that pass test assertion
 
-Type: `String|RegExp|Array<String|RegExp>`. Default: `undefined`
+Type: `String|RegExp|Array<String|RegExp>`.
 
-#### include
+#### rules
 
-Include all assets matching any of these conditions
+Array of rules to search and replace assets
 
-Type: `String|RegExp|Array<String|RegExp>`. Default: `undefined`
+```js
+new ReplaceAssetNamePlugin({
+  asset: /main(-.*)?.js$/,
+  rules: [
+    {
+      search: '{APP_ENTRY_REF}',
+      replace: /app(-.*)?.js$/,
+    },
+  ],
+});
+```
 
-#### exclude
+**search**
 
-Exclude all assets matching any of these conditions
-
-Type: `String|RegExp|Array<String|RegExp>`. Default: `undefiend`
-
-#### search
+Type: `String|RegExp`
 
 Replace the occurrence of given string or regex with the asset name
 
-Type: `String|RegExp`. Default: `undefiend`
+**replace**
 
-#### assetName
+Type: `String|RegExp`.
 
 Name of the asset to be replaced with the matching search term
-
-Type: `String|RegExp`. Default: `undefiend`
 
 ### Related Plugins
 

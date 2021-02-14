@@ -2,12 +2,14 @@ import { Compiler } from 'webpack';
 
 type Rule = string | RegExp | Array<string | RegExp>;
 
-interface Options {
-  test: Rule;
-  include?: Rule;
-  exclude?: Rule;
+interface ReplaceRules {
   search: string | RegExp;
-  assetName: string | RegExp;
+  replace: string | RegExp;
+}
+
+interface Options {
+  asset: Rule;
+  rules: ReplaceRules[];
 }
 
 declare class ReplaceAssetNamePlugin {
