@@ -1,6 +1,6 @@
 {
   "name": "replace-asset-name-webpack-plugin",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Replace asset name in a file",
   "main": "src/index.js",
   "typings": "src/index.d.ts",
