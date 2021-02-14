@@ -14,6 +14,12 @@ All notable changes to this project will be documented in this file.
 > - Internal
 > - Unreleased
 
-## v1.0.0 (2021-02-14)
+## v0.1.1 (2021-02-14)
+
+#### Bug Fixes
+
+- update typings ([dbfc0ec](https://github.com/sibiraj-s/replace-asset-name-webpack-plugin/commit/dbfc0ec))
+
+## v0.1.0 (2021-02-14)
 
 - **Initial Release**: Plugin to replace blocks with asset name matching given regex or string
