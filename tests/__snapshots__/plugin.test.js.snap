@@ -27,6 +27,15 @@ Array [
 ]
 `;
 
+exports[`should replace the asset name correctly when replace is a string: assets 1`] = `
+Array [
+  "js/main.js",
+  "js/secondary.js",
+  "js/main.js.map",
+  "js/secondary.js.map",
+]
+`;
+
 exports[`should replace the asset name correctly when search is a regex: assets 1`] = `
 Array [
   "js/main-c4fe40039b79c556e104.js",

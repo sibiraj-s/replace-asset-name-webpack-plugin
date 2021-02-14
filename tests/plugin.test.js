@@ -47,6 +47,33 @@ it('should replace the asset name correctly in dev mode', async () => {
   expect(mainJS).toContain('secondary.js');
 });
 
+it('should replace the asset name correctly when replace is a string', async () => {
+  const compiler = getCompiler(true);
+
+  new ReplaceAssetNamePlugin({
+    asset: /main.js$/,
+    rules: [
+      {
+        search: '{SECONDARY_FILE}',
+        replace: 'js/secondary.js',
+      },
+    ],
+  }).apply(compiler);
+
+  const stats = await compile(compiler);
+
+  const assets = getAssetNames(stats);
+  expect(assets).toMatchSnapshot('assets');
+  expect(assets.length).toBe(4);
+
+  expect(hasAsset(stats, 'js/main.js')).toBeTruthy();
+
+  const mainFilePath = path.resolve(process.cwd(), 'dist', 'js/main.js');
+
+  const mainJS = await fs.promises.readFile(mainFilePath, 'utf-8');
+  expect(mainJS).toContain('secondary.js');
+});
+
 it('should replace the asset name correctly in prod mode', async () => {
   const compiler = getCompiler();
 
