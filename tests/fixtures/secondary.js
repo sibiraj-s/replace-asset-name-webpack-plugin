@@ -1,0 +1,1 @@
+window.SAY = 'Hello world!';

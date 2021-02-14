@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should do nothing when target asset is not found: assets 1`] = `
+Array [
+  "js/main-8d84ad0c7f998ea39855.js",
+  "js/secondary-206f81d3a8599c10683b.js",
+  "js/main-8d84ad0c7f998ea39855.js.map",
+  "js/secondary-206f81d3a8599c10683b.js.map",
+]
+`;
+
+exports[`should replace the asset name correctly in dev mode: assets 1`] = `
+Array [
+  "js/main.js",
+  "js/secondary.js",
+  "js/main.js.map",
+  "js/secondary.js.map",
+]
+`;
+
+exports[`should replace the asset name correctly in prod mode: assets 1`] = `
+Array [
+  "js/main-c4fe40039b79c556e104.js",
+  "js/secondary-206f81d3a8599c10683b.js",
+  "js/main-c4fe40039b79c556e104.js.map",
+  "js/secondary-206f81d3a8599c10683b.js.map",
+]
+`;

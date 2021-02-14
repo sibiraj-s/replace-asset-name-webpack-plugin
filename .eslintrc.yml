@@ -1,0 +1,11 @@
+root: true
+
+extends:
+  - pegasus
+  - pegasus/node
+
+ignorePatterns:
+  - '**/fixtures/*'
+
+env:
+  jest: true
