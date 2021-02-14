@@ -14,6 +14,12 @@ All notable changes to this project will be documented in this file.
 > - Internal
 > - Unreleased
 
+## v0.2.0 (2021-02-14)
+
+#### Features
+
+- accept array of rules ([93cb4f7](https://github.com/sibiraj-s/replace-asset-name-webpack-plugin/commit/93cb4f7))
+
 ## v0.1.1 (2021-02-14)
 
 #### Bug Fixes
