@@ -14,6 +14,12 @@ All notable changes to this project will be documented in this file.
 > - Internal
 > - Unreleased
 
+## v0.2.1 (2021-02-15)
+
+#### Bug Fixes
+
+- add `webpack` to peerDependencies ([b039970](https://github.com/sibiraj-s/replace-asset-name-webpack-plugin/commit/b039970))
+
 ## v0.2.0 (2021-02-14)
 
 #### Features
