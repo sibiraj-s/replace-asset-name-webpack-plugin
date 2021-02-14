@@ -4,7 +4,7 @@ const optionsSchema = require('./options.schema.json');
 
 const PLUGIN_NAME = 'ReplaceAssetNamePlugin';
 
-class ReplaceAssetNameWebpackPlugin {
+class ReplaceAssetNamePlugin {
   constructor(options) {
     validate(optionsSchema, options, {
       name: PLUGIN_NAME,
@@ -66,4 +66,4 @@ class ReplaceAssetNameWebpackPlugin {
   }
 }
 
-module.exports = ReplaceAssetNameWebpackPlugin;
+module.exports = ReplaceAssetNamePlugin;
