@@ -25,6 +25,9 @@
   "scripts": {
     "test": "jest"
   },
+  "peerDependencies": {
+    "webpack": "^5.20.0"
+  },
   "dependencies": {
     "schema-utils": "^3.0.0"
   },

@@ -6,7 +6,7 @@
 [![License](https://badgen.net/github/license/sibiraj-s/replace-asset-name-webpack-plugin)](https://github.com/sibiraj-s/replace-asset-name-webpack-plugin)
 [![Version](https://badgen.net/npm/v/replace-asset-name-webpack-plugin)](https://npmjs.com/replace-asset-name-webpack-plugin)
 [![Node Version](https://badgen.net/npm/node/replace-asset-name-webpack-plugin)](https://npmjs.com/replace-asset-name-webpack-plugin)
-[![Webpack Version](https://badgen.net/badge/webpack/%3E=5/orange)](https://webpack.js.org/)
+[![Webpack Version](https://badgen.net/badge/webpack/%3E=5%2E20/orange)](https://webpack.js.org/)
 
 ## Getting Started
 
