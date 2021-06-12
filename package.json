@@ -20,7 +20,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=10.13"
+    "node": ">=12.20"
   },
   "scripts": {
     "test": "jest",
