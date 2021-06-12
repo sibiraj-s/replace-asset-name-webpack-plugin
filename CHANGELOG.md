@@ -14,6 +14,12 @@ All notable changes to this project will be documented in this file.
 > - Internal
 > - Unreleased
 
+## v1.0.0 (2021-06-12)
+
+#### Breaking Changes
+
+- drop node.js 10 support ([576fc83](https://github.com/sibiraj-s/replace-asset-name-webpack-plugin/commit/576fc83))
+
 ## v0.2.1 (2021-02-15)
 
 #### Bug Fixes
