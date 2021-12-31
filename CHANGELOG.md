@@ -14,6 +14,12 @@ All notable changes to this project will be documented in this file.
 > - Internal
 > - Unreleased
 
+## v1.0.1 (2021-12-31)
+
+#### Dependency Updates
+
+- update schema-utils to v4 ([19fbe6e](https://github.com/sibiraj-s/replace-asset-name-webpack-plugin/commit/19fbe6e))
+
 ## v1.0.0 (2021-06-12)
 
 #### Breaking Changes
