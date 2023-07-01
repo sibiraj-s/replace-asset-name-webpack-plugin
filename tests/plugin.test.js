@@ -129,6 +129,36 @@ it('should replace the asset name correctly when search is a regex', async () =>
   expect(mainJS).toContain(secondaryFileName);
 });
 
+it('should transform the asset', async () => {
+  const compiler = getCompiler();
+
+  new ReplaceAssetNamePlugin({
+    asset: /main(?:-.*)?.js$/,
+    rules: [
+      {
+        search: /{SECONDARY_FILE}/g,
+        replace: /secondary(?:-.*)?.js$/,
+        transform: (asset) => path.basename(asset),
+      },
+    ],
+  }).apply(compiler);
+
+  const stats = await compile(compiler);
+
+  const assets = getAssetNames(stats);
+  expect(assets).toMatchSnapshot('assets');
+  expect(assets.length).toBe(4);
+
+  const mainFileName = assets.find((asset) => (/main(?:-.*)?.js$/).test(asset));
+  const secondaryFileName = assets.find((asset) => (/secondary(?:-.*)?.js$/).test(asset));
+  const mainFilePath = path.resolve(process.cwd(), 'dist', mainFileName);
+
+  const mainJS = await fs.promises.readFile(mainFilePath, 'utf-8');
+  expect(mainJS).not.toContain(secondaryFileName);
+  expect(mainJS).toContain(secondaryFileName.split('js/')[1]);
+  expect(mainJS).toMatchSnapshot('mainJS');
+});
+
 it('should do nothing when target asset is not found', async () => {
   const compiler = getCompiler();
 

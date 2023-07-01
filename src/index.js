@@ -1,6 +1,7 @@
 const { validate } = require('schema-utils');
 
 const optionsSchema = require('./options.schema.json');
+
 const PLUGIN_NAME = 'ReplaceAssetNamePlugin';
 
 class ReplaceAssetNamePlugin {
@@ -47,7 +48,11 @@ class ReplaceAssetNamePlugin {
           return;
         }
 
-        assetString = assetString.replace(searchRegex, assetToReplace);
+        const transformedAssetToReplace = typeof rule.transform === 'function'
+          ? rule.transform(assetToReplace)
+          : assetToReplace;
+
+        assetString = assetString.replace(searchRegex, transformedAssetToReplace);
       });
 
       compilation.updateAsset(assetName, new RawSource(assetString), info);

@@ -44,3 +44,17 @@ exports[`should replace the asset name correctly when search is a regex: assets 
   "js/secondary-206f81d3a8599c10683b.js.map",
 ]
 `;
+
+exports[`should transform the asset: assets 1`] = `
+[
+  "js/main-b7fe9e3bb1aaef940bf9.js",
+  "js/secondary-206f81d3a8599c10683b.js",
+  "js/main-b7fe9e3bb1aaef940bf9.js.map",
+  "js/secondary-206f81d3a8599c10683b.js.map",
+]
+`;
+
+exports[`should transform the asset: mainJS 1`] = `
+"console.log("secondary-206f81d3a8599c10683b.js");
+//# sourceMappingURL=main-b7fe9e3bb1aaef940bf9.js.map"
+`;

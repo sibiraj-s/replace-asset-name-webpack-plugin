@@ -10,6 +10,7 @@ interface ReplaceRules {
 interface Options {
   asset: Rule;
   rules: ReplaceRules[];
+  transform: (assetName: string) => string;
 }
 
 declare class ReplaceAssetNamePlugin implements WebpackPluginInstance {
