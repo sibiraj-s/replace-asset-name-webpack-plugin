@@ -16,6 +16,12 @@ All notable changes to this project will be documented in this file.
 
 ## v1.1.0 (2023-07-01)
 
+#### Internal
+
+- add npm package provenance ([6d2529b](https://github.com/sibiraj-s/replace-asset-name-webpack-plugin/commit/6d2529b))
+
+## v1.1.0 (2023-07-01)
+
 #### Features
 
 - add option to transform the asset to be replaced ([ae5d7d4](https://github.com/sibiraj-s/replace-asset-name-webpack-plugin/commit/ae5d7d4))
