@@ -14,6 +14,12 @@ All notable changes to this project will be documented in this file.
 > - Internal
 > - Unreleased
 
+## v1.1.0 (2023-07-01)
+
+#### Features
+
+- add option to transform the asset to be replaced ([ae5d7d4](https://github.com/sibiraj-s/replace-asset-name-webpack-plugin/commit/ae5d7d4))
+
 ## v1.0.1 (2021-12-31)
 
 #### Dependency Updates
