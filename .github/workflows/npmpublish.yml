@@ -1,7 +1,7 @@
 name: NPM Publish
 
 env:
-  NODE_VERSION: 18
+  NODE_VERSION: 24
 
 on:
   push:
@@ -25,6 +25,4 @@ jobs:
       - run: npm ci
       - run: npm run test
 
-      - run: npm publish --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - run: npm stage publish
